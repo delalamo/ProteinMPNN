@@ -17,7 +17,7 @@ fi
 
 chains_to_design="A B"
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --pdb_path $path_to_PDB \
         --pdb_path_chains "$chains_to_design" \
         --out_folder $output_dir \

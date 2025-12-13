@@ -32,7 +32,7 @@ python ../helper_scripts/make_fixed_positions_dict.py --input_path=$path_for_par
 
 python ../helper_scripts/make_tied_positions_dict.py --input_path=$path_for_parsed_chains --output_path=$path_for_tied_positions --chain_list "$chains_to_design" --position_list "$tied_positions"
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --jsonl_path $path_for_parsed_chains \
         --chain_id_jsonl $path_for_assigned_chains \
         --fixed_positions_jsonl $path_for_fixed_positions \

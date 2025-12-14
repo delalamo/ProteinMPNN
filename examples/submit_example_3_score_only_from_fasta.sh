@@ -18,7 +18,7 @@ fi
 
 chains_to_design="A B"
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --path_to_fasta $path_to_fasta \
         --pdb_path $path_to_PDB \
         --pdb_path_chains "$chains_to_design" \

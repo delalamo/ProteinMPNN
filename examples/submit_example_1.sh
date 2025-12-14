@@ -19,7 +19,7 @@ path_for_parsed_chains=$output_dir"/parsed_pdbs.jsonl"
 
 python ../helper_scripts/parse_multiple_chains.py --input_path=$folder_with_pdbs --output_path=$path_for_parsed_chains
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --jsonl_path $path_for_parsed_chains \
         --out_folder $output_dir \
         --num_seq_per_target 2 \

@@ -24,7 +24,7 @@ python ../helper_scripts/parse_multiple_chains.py --input_path=$folder_with_pdbs
 
 python ../helper_scripts/make_tied_positions_dict.py --input_path=$path_for_parsed_chains --output_path=$path_for_tied_positions --homooligomer 1
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --jsonl_path $path_for_parsed_chains \
         --tied_positions_jsonl $path_for_tied_positions \
         --out_folder $output_dir \

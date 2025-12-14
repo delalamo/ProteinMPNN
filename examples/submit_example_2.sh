@@ -24,7 +24,7 @@ python ../helper_scripts/parse_multiple_chains.py --input_path=$folder_with_pdbs
 
 python ../helper_scripts/assign_fixed_chains.py --input_path=$path_for_parsed_chains --output_path=$path_for_assigned_chains --chain_list "$chains_to_design"
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --jsonl_path $path_for_parsed_chains \
         --chain_id_jsonl $path_for_assigned_chains \
         --out_folder $output_dir \

@@ -36,7 +36,7 @@ python ../helper_scripts/assign_fixed_chains.py --input_path=$path_for_parsed_ch
 
 python ../helper_scripts/make_pssm_input_dict.py --jsonl_input_path=$path_for_parsed_chains --PSSM_input_path=$pssm_input_path --output_path=$pssm
 
-python ../protein_mpnn_run.py \
+python -m proteinmpnn.cli \
         --jsonl_path $path_for_parsed_chains \
         --chain_id_jsonl $path_for_assigned_chains \
         --out_folder $output_dir \

@@ -11,15 +11,21 @@ CA only models: `ca_model_weights/v_48_002.pt, v_48_010.pt, v_48_020.pt`. Enable
 Helper scripts: `helper_scripts` - helper functions to parse PDBs, assign which chains to design, which residues to fix, adding AA bias, tying residues etc.
 
 Code organization:
-* `protein_mpnn_run.py` - the main script to initialialize and run the model.
-* `protein_mpnn_utils.py` - utility functions for the main script.
-* `examples/` - simple code examples.
+* `proteinmpnn/` - modular Python package
+  * `cli.py` - command-line interface entry point
+  * `core/` - model architecture (layers, embeddings, features, model)
+  * `data/` - data types, parsers, featurization
+  * `config/` - configuration types and loaders
+  * `inference/` - inference runner
+  * `utils/` - utility functions
+* `examples/` - simple code examples
 * `inputs/` - input PDB files for examples
 * `outputs/` - outputs from examples
 * `colab_notebooks/` - Google Colab examples
 * `training/` - code and data to retrain the model
+* `tests/` - unit tests
 -----------------------------------------------------------------------------------------------------
-Input flags for `protein_mpnn_run.py`:
+Input flags for `python -m proteinmpnn.cli`:
 ```
     argparser.add_argument("--suppress_print", type=int, default=0, help="0 for False, 1 for True")
     argparser.add_argument("--ca_only", action="store_true", default=False, help="Parse CA-only structures and use CA-only models (default: false)")
@@ -62,6 +68,9 @@ For example to make a conda environment to run ProteinMPNN:
 * `conda create --name mlfold` - this creates conda environment called `mlfold`
 * `source activate mlfold` - this activate environment
 * `conda install pytorch torchvision torchaudio cudatoolkit=11.3 -c pytorch` - install pytorch following steps from https://pytorch.org/
+
+To run ProteinMPNN:
+* `python -m proteinmpnn.cli --pdb_path /path/to/pdb --out_folder /path/to/output`
 -----------------------------------------------------------------------------------------------------
 These are provided `examples/`:
 * `submit_example_1.sh` - simple monomer example 
